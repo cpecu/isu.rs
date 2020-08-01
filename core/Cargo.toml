@@ -7,8 +7,9 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+tokio = { version = "0.2", features = ["full"] }
 image = "*"
-quick_xml = "*"
+quick-xml = { version = "*", features = ["encoding"] }
 serde = "*"
 serde_derive = "*"
 uuid = "*"
@@ -20,8 +21,10 @@ open = "*"
 fs_extra = "*"
 nom = "*"
 lexical = "*"
-config = { version="*", features=["toml"] }
 chrono = "*"
-
+anyhow = "*"
 # xi = "*"
 # clokwerk = "*"
+
+[dev-dependencies]
+config = { version="*", features=["toml"] }
