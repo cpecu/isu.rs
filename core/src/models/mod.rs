@@ -2,10 +2,17 @@ pub mod demo;
 pub mod section;
 pub mod step;
 
+use serde_derive::*;
+use serde::{Serialize, Deserialize};
+
 pub trait PointPair {}
+#[derive(Serialize, Deserialize)]
 pub struct IntCoords { pub x: u32, pub y: u32 }
+#[derive(Serialize, Deserialize)]
 pub struct FloatCoords { pub x: f32, pub y: f32 }
+#[derive(Serialize, Deserialize)]
 pub struct IntDims { pub w: u32, pub h: u32 }
+#[derive(Serialize, Deserialize)]
 pub struct FloatDims { pub w: f32, pub h: f32 }
 
 impl PointPair for IntCoords {}
