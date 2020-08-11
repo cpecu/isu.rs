@@ -12,7 +12,8 @@ use quick_xml::{Reader, Writer, Result as XMLResult,
 use super::*;
 
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, PartialEq, Default)]
+#[serde(rename_all="PascalCase", default)]
 pub struct Demo {
     pub id: Uuid,
     pub demo_name: String,
@@ -21,6 +22,7 @@ pub struct Demo {
     pub demo_schema_version: f32,
     pub xml_name: String,
     pub welcome_message: Option<String>,
+    #[serde(rename="Chapter")]
     pub sections: Vec<Section>,
     pub assets_directory: String,
     pub loaded_from_file_name: String,
@@ -89,6 +91,12 @@ impl Demo {
             demo_buf.clear();
         }
         let out = demo_out.into_inner().into_inner();
+        Ok(())
+    }
+
+    pub fn write() -> XMLResult<()> {
+        let mut writer = Writer::new(Cursor::new(Vec::new()));
+        let mut demo_buf: Vec<&[u8]> = Vec::new();
         Ok(())
     }
 }

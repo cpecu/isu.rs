@@ -10,13 +10,13 @@ use serde_derive::*;
 use serde::{Serialize, Deserialize};
 
 pub trait PointPair {}
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, PartialEq)]
 pub struct IntCoords { pub x: u32, pub y: u32 }
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, PartialEq)]
 pub struct FloatCoords { pub x: f32, pub y: f32 }
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, PartialEq)]
 pub struct IntDims { pub w: u32, pub h: u32 }
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, PartialEq)]
 pub struct FloatDims { pub w: f32, pub h: f32 }
 
 impl PointPair for IntCoords {}
