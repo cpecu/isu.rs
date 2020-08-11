@@ -2,5 +2,9 @@
 members = [
   "ui",
   "core",
-  "app/src-tauri",
+  "img",
+  "audio",
+  "parse",
+  "client/src-tauri",
+  "app",
 ]

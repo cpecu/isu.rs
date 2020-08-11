@@ -2,6 +2,10 @@ pub mod demo;
 pub mod section;
 pub mod step;
 
+pub use demo::Demo;
+pub use step::Step;
+pub use section::Section;
+
 use serde_derive::*;
 use serde::{Serialize, Deserialize};
 

@@ -9,7 +9,7 @@ edition = "2018"
 [dependencies]
 tokio = { version = "0.2", features = ["full"] }
 image = "*"
-quick-xml = { version = "*", features = ["encoding"] }
+quick-xml = { version = "*", features = ["encoding", "serialize"] }
 serde = { version = "*", features = [ "derive" ] }
 serde_derive = "*"
 uuid = { version = "0.8", features = ["serde", "v4"] }
@@ -23,6 +23,8 @@ nom = "*"
 lexical = "*"
 chrono = "*"
 anyhow = "*"
+docx = "*"
+#deepspeech="*"
 # xi = "*"
 # clokwerk = "*"
 
