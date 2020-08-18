@@ -20,7 +20,7 @@ use tauri::api::{
 };
 use quick_xml::{
     Reader, Writer, de::from_str, Result as XmlResult,
-    events::Event,
+    events::{Event, BytesStart, BytesEnd, BytesText},
 };
 
 fn main() {
@@ -75,22 +75,32 @@ pub struct Steps {
 pub fn parse(path: String) -> XmlResult<()> {
     let mut demo = Reader::from_file(&path).unwrap();
     demo
-        .trim_text(false)
+        .trim_text(true)
         .trim_markup_names_in_closing_tags(false);
     Notification::new()
         .title("Demo loaded")
         .body(format!("Loaded from {}", &path))
         .show().unwrap();
     let mut buf = Vec::new();
+    let get_text = |bytes: std::io::Bytes<&[u8]>| {
+        String::from_utf8(bytes.fold(Vec::new(), |mut vec, byt| {
+            vec.push(byt.unwrap());
+            vec
+        })).unwrap()
+    };
     loop {
         match demo.read_event(&mut buf) {
             Ok(Event::Start(ref e)) => {
+                let txt = get_text(e.bytes());
+                println!("Got start: {}", txt);
             }
             Ok(Event::Text(e)) => { 
-                println!("Got text");
+                let txt = get_text(e.bytes());
+                println!("Got text: {}", txt);
             }
             Ok(Event::End(ref e)) => {
-
+                let txt = get_text(e.bytes());
+                println!("Got end: {}", txt);
             }
             Ok(Event::Eof) => break,
             Err(e) => {
@@ -101,6 +111,7 @@ pub fn parse(path: String) -> XmlResult<()> {
     }
     Ok(())
 }
+
 
 /*
 #[derive(Serialize, Deserialize, PartialEq, Default)]

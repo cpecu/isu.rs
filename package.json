@@ -25,6 +25,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "@shoelace-style/shoelace": "^2.0.0-beta.13",
     "@sveltech/routify": "^1.9.7",
     "rollup-plugin-rust": "^1.2.0",
     "sirv-cli": "^1.0.0",

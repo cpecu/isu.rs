@@ -6,3 +6,4 @@
 **target/
 **.cache/
 **node_modules/
+**debug/

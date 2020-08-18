@@ -4,6 +4,7 @@
   import { createDir, readDir, readTextFile } from 'tauri/api/fs';
   import { emit, listen } from 'tauri/api/event';
   import { sendNotification } from 'tauri/api/notification';
+  import { beforeUrlChange, afterPageLoad, goto } from '@sveltech/routify'
   let demoPath: string = "";
   let demo;
   let submitted: boolean = false;
@@ -14,8 +15,7 @@
   const importDemo = async () => {
     submitted = true;
     demo = await promisified({cmd: "loadDemo", path: demoPath });
-    sendNotification("Demo loaded");
-    console.log(demo);
+    
   }
 </script>
 

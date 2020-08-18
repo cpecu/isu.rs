@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+  import { url } from '@sveltech/routify';
 
 </script>
 <style>
