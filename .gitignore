@@ -1,1 +1,5 @@
-/target
+/node_modules/
+/public/build/
+/app/node_modules/
+/app/src-tauri/target/
+.DS_Store
