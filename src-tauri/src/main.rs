@@ -112,6 +112,14 @@ pub fn parse(path: String) -> XmlResult<()> {
     Ok(())
 }
 
+pub fn parse_step() -> quick_xml::Result<()> {
+    Ok(())
+}
+
+pub fn parse_sect() -> quick_xml::Result<()> {
+    Ok(())
+}
+
 
 /*
 #[derive(Serialize, Deserialize, PartialEq, Default)]
