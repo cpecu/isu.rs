@@ -1,6 +1,6 @@
 {
   "build": {
-    "distDir": "./front/public/",
+    "distDir": "../public",
     "devPath": "http://localhost:5000",
     "beforeDevCommand": "",
     "beforeBuildCommand": ""
@@ -42,7 +42,7 @@
       "all": true
     },
     "window": {
-      "title": "Impresys Utils",
+      "title": "impresys utils",
       "width": 800,
       "height": 600,
       "resizable": true,
